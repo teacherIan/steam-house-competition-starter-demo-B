@@ -34,3 +34,21 @@ window.addEventListener('resize', () => {
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
 });
+
+export const objectArray = [];
+
+const sphereGeometry = new THREE.SphereBufferGeometry(0.5, 32, 32);
+const boxGeometry = new THREE.BoxBufferGeometry(1, 1, 1);
+const material = new THREE.MeshNormalMaterial();
+
+export const createSphere = () => {
+  const sphere = new THREE.Mesh(sphereGeometry, material);
+  scene.add(sphere);
+  objectArray.push(sphere);
+};
+
+export const createCube = () => {
+  const cube = new THREE.Mesh(boxGeometry, material);
+  scene.add(cube);
+  objectArray.push(cube);
+};
